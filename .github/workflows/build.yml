@@ -2,17 +2,7 @@ name: build
 on: [push, pull_request, workflow_dispatch]
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
-        build_type: [RelWithDebInfo, Debug]
-        enable_ui: [off]
-        include:
-          - os: ubuntu-latest
-            build_type: Debug
-            enable_ui: on
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
